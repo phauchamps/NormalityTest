@@ -1,0 +1,54 @@
+---
+title: "NormalityTest"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{NormalityTest}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(NormalityTest)
+```
+
+# Introduction
+This vignette is aimed at showing you hints to use the functions that are part 
+of the `NormalityTest` package.
+
+# Datasets
+This package comes with a specific dataset (see `?arrivals` for more info).
+
+```{r arrivals.head, echo=TRUE}
+head(arrivals,20)
+```
+
+
+Here below is the code that was used to generate it !
+
+`set.seed(20200503)`   
+`nData <- 1000`  
+`arrivals <- data.frame( gender = rbinom(nData, size = 1, prob = 0.5),`    
+`                        time = rpois(n = nData, lambda = 3),`  
+`                        weight = rnorm(n = nData, mean = 60, sd = 5),`     
+`                        age = rnorm(n = nData, mean = 35, sd = 10) )`      
+`arrivals$weight <- arrivals$weight + 20*arrivals$gender`   
+`arrivals$gender <- factor(arrivals$gender)`   
+`levels(arrivals$gender) <- c("female", "male")`  
+
+
+# Example
+
+Testing the `normality.df` function on the `arrivals`data :
+
+```{r example, echo=TRUE, fig.height = 4, fig.width = 6}
+tst <- normality.df(arrivals, output = "figure")
+```
+
+

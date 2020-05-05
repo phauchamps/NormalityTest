@@ -1,0 +1,23 @@
+Package: NormalityTest
+Title: Utility package for testing normality
+Version: 0.0.1
+Authors@R: 
+    person(given = "Philippe",
+           family = "Hauchamps",
+           role = c("aut", "cre"),
+           email = "philippe.hauchamps@student.uclouvain.be",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: This package provides a set of utility functions to test data normality. The data can be standalone or part of data.frames.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.0
+Imports: 
+    stats (>= 3.6.1),
+    graphics (>= 3.6.1)
+Depends: R (>= 2.10)
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
